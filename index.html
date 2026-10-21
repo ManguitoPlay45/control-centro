@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control del centro</title>
+
+  <!-- Archivo de diseño (CSS) -->
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main>
+    <h1>Control del centro</h1>
+
+    <!-- Aqui app.js dibuja una tarjeta por cada equipo -->
+    <div class="grid" id="devs"></div>
+
+    <!-- Boton para crear un equipo nuevo (lo maneja app.js) -->
+    <button id="addDev" class="p accion">+ Agregar equipo</button>
+
+    <!-- Boton para mostrar u ocultar toda la parte de ingresos -->
+    <button id="toggleIng" class="accion">Ocultar ingresos</button>
+
+    <!-- Todo lo que esta dentro de este div se oculta con el boton de arriba -->
+    <div id="ingresos">
+      <h2>Ingresos</h2>
+      <div class="stats" id="stats"></div>
+
+      <h2>Por equipo</h2>
+      <div class="wrap"><table id="bydev"></table></div>
+
+      <h2>Ultimos cobros</h2>
+      <div class="wrap"><table id="hist"></table></div>
+    </div>
+
+    <!-- Seccion de respaldo: siempre visible -->
+    <h2>Respaldo de datos</h2>
+    <div class="aviso">
+      <p>
+        <b>Importante:</b> tus datos se guardan solo en este navegador, en este equipo.
+        Nadie mas puede verlos. Si borras los datos del navegador, usas otro navegador
+        u otro equipo, no los veras. Descarga un respaldo de vez en cuando.
+      </p>
+      <p class="mut" id="ultimoRespaldo"></p>
+      <div class="row">
+        <button id="btnExportar" class="p">Descargar respaldo</button>
+        <button id="btnImportar">Cargar respaldo</button>
+      </div>
+      <!-- Campo de archivo oculto: el boton "Cargar respaldo" lo abre -->
+      <input type="file" id="archivoRespaldo" accept=".json,application/json" hidden>
+    </div>
+  </main>
+
+  <!-- Archivo de logica (JavaScript). Va al final para que el HTML ya exista -->
+  <script src="app.js"></script>
+</body>
+</html>
